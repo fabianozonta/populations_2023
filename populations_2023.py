@@ -296,34 +296,3 @@ plt.tight_layout()
 plt.show()
 
 df_cidades_coun = df[['City', 'Country']]
-
-pip install pandas geopandas matplotlib
-
-
-
-import geopandas as gpd
-import matplotlib.pyplot as plt
-
-# Carregar o shapefile do mapa mundial
-world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-
-# Filtrar apenas as cidades que você deseja mostrar no mapa
-cidades_plot = df_cidades = df['City'].head(10)
-
-# Criar uma figura e os eixos
-fig, ax = plt.subplots(figsize=(10, 6))
-
-# Plotar o mapa mundial
-world.plot(ax=ax, color='lightgray')
-
-# Plotar as cidades no mapa
-cidades_plot.plot(ax=ax, markersize=5, color='red', alpha=0.7)
-
-# Definir o título do gráfico
-ax.set_title('Localização das Cidades na Europa')
-
-# Remover os eixos
-ax.set_axis_off()
-
-# Exibir o gráfico
-plt.show()
